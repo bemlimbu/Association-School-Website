@@ -1,0 +1,13 @@
+django
+pillow
+stripe
+python-dotenv
+channels
+channels-redis
+bleach
+daphne
+gunicorn
+psycopg2-binary
+whitenoise
+django-storages
+boto3
