@@ -1,0 +1,26 @@
+{% extends "Main/base.html" %}
+
+{% block content %}
+<div class="event-list_container">
+    <h2 class="event-list_title">Upcoming Events</h2>
+    <a href="{% url 'events:create_event' %}" 
+       style="background-color: #004080; color: white; text-decoration: none; padding: 10px 18px; border-radius: 8px; font-size: 15px; transition: background 0.3s ease;">
+       + Create Event
+    </a>
+
+    <ul class="event-list_items">
+        {% for event in events %}
+            <li class="event-list_item">
+                <a href="{% url 'events:event_detail' event.pk %}" class="event-list_link">
+                    {{ event.title }}
+                </a>
+                <div class="event-list_meta">
+                    {{ event.date|date:"D, d M Y H:i" }} <span>•</span> {{ event.location }}
+                </div>
+            </li>
+        {% empty %}
+            <li class="event-list_empty">No events yet.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

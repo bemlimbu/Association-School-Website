@@ -1,0 +1,9 @@
+# admin/apps.py
+try:
+    from django.apps import AppConfig
+except ImportError as e:
+    print(f"\nError: Django not available.\n{e}")
+
+class AdminConfig(AppConfig):
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'custom_admin'          # your folder name
